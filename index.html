@@ -6,7 +6,7 @@
     <title>Grace Hopper, COBOL, and Why It Still Matters</title>
     <meta
       name="description"
-      content="A short, image-rich blog tribute to Rear Admiral Grace Hopper and COBOL's lasting impact on banking and government systems."
+      content="Image-rich mini blog about Rear Admiral Grace Hopper, COBOL, and enduring mainframe computing."
     />
     <style>
       :root {
@@ -52,6 +52,7 @@
         margin: auto;
         padding: 0 20px 60px;
       }
+
       /* Collage */
       .collage {
         display: grid;
@@ -162,7 +163,7 @@
       }
       .gallery {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
         gap: 12px;
         margin-top: 18px;
       }
@@ -175,7 +176,7 @@
       }
       .gallery img {
         width: 100%;
-        height: 210px;
+        height: 220px;
         object-fit: cover;
         display: block;
       }
@@ -183,6 +184,30 @@
         padding: 8px 10px;
         font-size: 12.5px;
         color: #c9d3e8;
+      }
+
+      .explain {
+        margin-top: 28px;
+        background: var(--card);
+        border: 1px solid #232a3c;
+        border-radius: 14px;
+        padding: 18px;
+      }
+      .explain h3 {
+        margin: 0 0 8px;
+      }
+      .explain p {
+        margin: 0.4em 0;
+      }
+      .tag {
+        display: inline-block;
+        font-size: 12px;
+        color: #93c5fd;
+        background: #0f172a;
+        border: 1px solid #1e293b;
+        padding: 0.15em 0.5em;
+        border-radius: 999px;
+        margin-right: 6px;
       }
 
       /* Lightbox */
@@ -227,6 +252,17 @@
         padding: 0.3em 0.5em;
         border-radius: 8px;
       }
+      .ai-badge {
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        background: #7c3aed;
+        color: #fff;
+        font-size: 11px;
+        padding: 4px 6px;
+        border-radius: 6px;
+        opacity: 0.9;
+      }
     </style>
   </head>
   <body>
@@ -236,51 +272,41 @@
         Rear Admiral • Compiler pioneer • Made computers “speak human”
       </div>
 
-      <!-- Collage -->
+      <!-- Collage (hero) -->
+      <!-- Collage (hero) -->
       <div class="collage" id="collage">
-        <!-- Grace Hopper official portrait -->
         <div class="tile w6 h2">
           <img
-            data-src="https://commons.wikimedia.org/wiki/Special:FilePath/Grace%20Hopper.jpg"
+            data-src="/Grace_Hopper.jpg"
             alt="Grace Hopper official US Navy portrait (1984)"
           />
           <small>Grace Hopper in uniform (1984)</small>
         </div>
 
-        <!-- Hopper, uniform alt -->
-        <div class="tile w4 h1">
-          <img
-            data-src="https://commons.wikimedia.org/wiki/Special:FilePath/Commodore%20Grace%20M.%20Hopper,%20USN%20(covered).jpg"
-            alt="Grace Hopper, USN (covered)"
-          />
-          <small>Rear Admiral (Lower Half)</small>
-        </div>
-
-        <!-- The famous bug (Mark II logbook, 1947) -->
         <div class="tile w4 h2">
           <img
-            data-src="https://commons.wikimedia.org/wiki/Special:FilePath/First%20Computer%20Bug,%201945.jpg"
-            alt="Mark II logbook with moth taped in (the 'first computer bug', 1947)"
+            data-src="/univac.jpg"
+            alt="Grace Hopper at a UNIVAC console, c.1960"
+          />
+          <small>Hopper at a UNIVAC console (c.1960)</small>
+        </div>
+
+        <div class="tile w4 h2">
+          <img
+            data-src="/3984980_orig.jpg"
+            alt="Mark II logbook with moth taped in (the 'first computer bug')"
           />
           <small>“First actual case of bug being found” (1947)</small>
         </div>
 
-        <!-- IBM mainframe used in banking -->
         <div class="tile w8 h2">
-          <img
-            data-src="https://commons.wikimedia.org/wiki/Special:FilePath/IBM%20mainframe%20Z10.jpg"
-            alt="IBM z10 mainframe at a large Italian bank data center"
-          />
-          <small>Mainframe in a bank data center (COBOL workloads)</small>
+          <img data-src="/mainframe.jpg" alt="IBM mainframe" />
+          <small>IBM mainframe used in banking (COBOL workloads)</small>
         </div>
 
-        <!-- System z frames -->
         <div class="tile w12 h1">
-          <img
-            data-src="https://commons.wikimedia.org/wiki/Special:FilePath/System%20z%20Frames.JPG"
-            alt="IBM zEnterprise EC12/BC12 frames"
-          />
-          <small>IBM zEnterprise frames (EC12, BC12)</small>
+          <img data-src="/5-1080.1133257028.jpg" alt="IBM z13 mainframe" />
+          <small>IBM z13 mainframe system</small>
         </div>
       </div>
     </header>
@@ -304,16 +330,39 @@
           the scenes.
         </p>
 
-        <p class="note">
-          Fun artifacts: the taped moth in the Harvard Mark II logbook—the
-          “first actual case of bug being found”—and photos of Hopper in uniform
-          remind us tech is a human story: curiosity, clarity, and the guts to
-          make hard things simple.
-        </p>
+        <div class="explain">
+          <h3>What are these pictures?</h3>
+          <p>
+            <span class="tag">Portrait</span
+            ><strong>Hopper in uniform (1984):</strong> Official US Navy
+            portrait after she rose to Rear Admiral—one of the highest-ranking
+            women in the Navy at the time.
+          </p>
+          <p>
+            <span class="tag">Early career</span
+            ><strong>Hopper + UNIVAC:</strong> Hands-on at a UNIVAC console
+            (~1960). These years tie directly to early compilers like A-0 and
+            FLOW-MATIC, precursors to COBOL.
+          </p>
+          <p>
+            <span class="tag">Debug origin</span
+            ><strong>Mark II bug logbook (1947):</strong> Engineers taped an
+            actual moth in the log and wrote “first actual case of bug being
+            found.” This popularized “debugging” in computing.
+          </p>
+          <p>
+            <span class="tag">Mainframes</span
+            ><strong>“Decepticon-looking box” = IBM z13:</strong> A modern IBM
+            Z-series mainframe. Think ultra-reliable transaction engines where a
+            lot of COBOL still runs—banking, payroll, high-volume ledgers, and
+            government services.
+          </p>
+        </div>
 
-        <h3>Gallery (tap to view)</h3>
+        <h3>Gallery (tap to enlarge)</h3>
         <div class="gallery" id="gallery">
           <figure class="zoom">
+            <!-- TODO: self-host -->
             <img
               data-src="https://commons.wikimedia.org/wiki/Special:FilePath/Grace%20Hopper.jpg"
               alt="Grace Hopper official portrait"
@@ -325,30 +374,10 @@
           </figure>
 
           <figure class="zoom">
-            <img
-              data-src="https://commons.wikimedia.org/wiki/Special:FilePath/Commodore%20Grace%20M.%20Hopper,%20USN%20(covered).jpg"
-              alt="Hopper in uniform"
-            />
-            <figcaption>
-              Hopper in uniform. Source: US Navy / Wikimedia Commons.
-            </figcaption>
-          </figure>
-
-          <figure class="zoom">
-            <img
-              data-src="https://commons.wikimedia.org/wiki/Special:FilePath/First%20Computer%20Bug,%201945.jpg"
-              alt="Mark II bug logbook"
-            />
-            <figcaption>
-              Mark II logbook with the moth (“bug”), 1947. Source: Smithsonian
-              via Wikimedia Commons.
-            </figcaption>
-          </figure>
-
-          <figure class="zoom">
+            <!-- TODO: self-host -->
             <img
               data-src="https://commons.wikimedia.org/wiki/Special:FilePath/Grace%20Hopper%20and%20UNIVAC.jpg"
-              alt="Grace Hopper at the UNIVAC keyboard"
+              alt="Grace Hopper at UNIVAC"
             />
             <figcaption>
               Hopper at a UNIVAC console, c.1960. Source: Smithsonian /
@@ -357,40 +386,110 @@
           </figure>
 
           <figure class="zoom">
+            <!-- TODO: self-host -->
+            <img
+              data-src="https://americanhistory.si.edu/sites/default/files/styles/1400w/public/bug_0.jpg"
+              alt="Smithsonian photo of the moth taped in the Mark II logbook"
+            />
+            <figcaption>
+              Mark II moth logbook (Smithsonian). Source: National Museum of
+              American History.
+            </figcaption>
+          </figure>
+
+          <figure class="zoom">
+            <!-- TODO: self-host -->
             <img
               data-src="https://commons.wikimedia.org/wiki/Special:FilePath/IBM%20z13%20(front).png"
               alt="IBM z13 mainframe"
             />
             <figcaption>
-              IBM z13 mainframe. Source: Wikimedia Commons.
+              IBM z13 mainframe (typical COBOL host). Source: Wikimedia Commons.
             </figcaption>
           </figure>
 
           <figure class="zoom">
+            <!-- TODO: self-host -->
             <img
               data-src="https://commons.wikimedia.org/wiki/Special:FilePath/IBM%20z13%20and%20LinuxONE%20Rockhopper.jpg"
               alt="IBM z13 and LinuxONE"
             />
             <figcaption>
-              IBM z13 and LinuxONE Rockhopper. Source: Wikimedia Commons.
+              IBM z13 (left) & LinuxONE Rockhopper (right). Source: Commons.
+            </figcaption>
+          </figure>
+
+          <!-- Optional AI-recreated illustrative images -->
+          <figure class="zoom" style="position: relative">
+            <span class="ai-badge">Image recreated by AI</span>
+            <img
+              data-src="data:image/svg+xml;charset=utf-8,<?xml version='1.0' encoding='UTF-8'?><svg xmlns='http://www.w3.org/2000/svg' width='1200' height='800'><rect width='100%' height='100%' fill='%23141826'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='28' fill='%23cbd5e1'>Illustrative Fleet / Task Force (AI recreation placeholder)</text></svg>"
+              alt="Illustrative US Navy task force (AI recreation placeholder)"
+            />
+            <figcaption>
+              Illustrative carrier task force photo.
+              <strong>Note:</strong> Grace Hopper’s leadership was primarily
+              software/standards, not a sea command. (AI recreation
+              placeholder—replace with your own image.)
+            </figcaption>
+          </figure>
+
+          <figure class="zoom" style="position: relative">
+            <span class="ai-badge">Image recreated by AI</span>
+            <img
+              data-src="data:image/svg+xml;charset=utf-8,<?xml version='1.0' encoding='UTF-8'?><svg xmlns='http://www.w3.org/2000/svg' width='1200' height='800'><rect width='100%' height='100%' fill='%23141826'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='28' fill='%23cbd5e1'>Illustrative Navy personnel in field (AI recreation placeholder)</text></svg>"
+              alt="Illustrative Navy personnel (AI recreation placeholder)"
+            />
+            <figcaption>
+              Illustrative “in the field” Navy personnel.
+              <strong>Note:</strong> For accuracy, Hopper’s roles were
+              shore-based computing leadership. (AI recreation
+              placeholder—replace with your own image.)
             </figcaption>
           </figure>
         </div>
 
-        <h3>Rear Admiral, Real Impact</h3>
-        <p>
-          Rear Admirals typically lead large naval formations such as a
-          <em>Task Force</em> or <em>Carrier Strike Group</em>—the same level of
-          leadership spirit Hopper brought to computing: organize the complex,
-          make missions possible.
-        </p>
+        <h3>Rear Admiral, Real Roles (What she actually led)</h3>
+        <ul>
+          <li>
+            <strong>Director, Navy Programming Languages Group</strong> (Chief
+            of Naval Operations staff, Office of Information Systems Planning),
+            1967–1976 — led standardization/validation of COBOL across the Navy.
+            <em>Source in credits.</em>
+          </li>
+          <li>
+            <strong
+              >Special Advisor to Commander, Naval Data Automation Command
+              (NAVDAC)</strong
+            >, 1976–1986 — training & technology leadership for Navy-wide data
+            automation. <em>Source in credits.</em>
+          </li>
+          <li>
+            Earlier:
+            <strong>Bureau of Ships Computation Project at Harvard</strong>
+            (WAVES officer; Mark I/II era). <em>Source in credits.</em>
+          </li>
+        </ul>
+
+        <div class="explain">
+          <h3>“What unit does a Rear Admiral command?”</h3>
+          <p>
+            Rear Admirals often hold <em>flag</em> billets (e.g., Task Force,
+            Carrier Strike Group).
+            <strong>Grace Hopper’s flag career was different:</strong> her
+            commands were <em>technical/standardization</em> groups and an
+            advisory role to NAVDAC—she did <em>not</em> command a sea-going
+            fleet. The illustrative fleet/soldier images here are clearly
+            labeled as AI recreations to avoid implying she led those
+            formations.
+          </p>
+        </div>
 
         <footer>
           <p class="credit">
-            Image credits (via Wikimedia Commons “Special:FilePath”): Grace
-            Hopper portraits; “First Computer Bug, 1947” (Smithsonian logbook
-            image); IBM Z mainframes (z10, z13, zEnterprise). Licensing as noted
-            on each file’s page.
+            Images courtesy of Wikimedia Commons & Smithsonian Institution
+            archives. Some illustrative images recreated by AI are clearly
+            labeled.
           </p>
         </footer>
       </article>
