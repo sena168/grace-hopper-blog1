@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Grace Hopper, COBOL, and Why It Still Matters</title>
+    <meta
+      name="description"
+      content="A short, image-rich blog tribute to Rear Admiral Grace Hopper and COBOL's lasting impact on banking and government systems."
+    />
+    <style>
+      :root {
+        --bg: #0a0b0f;
+        --ink: #e9eef6;
+        --muted: #a9b3c7;
+        --accent: #7dd3fc;
+        --card: #141826;
+        --hl: #1f2536;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font: 16px/1.65 system-ui, Segoe UI, Roboto, Helvetica, Arial;
+        color: var(--ink);
+        background: radial-gradient(1200px 600px at 20% -10%, #122, transparent),
+          var(--bg);
+      }
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      header {
+        padding: 48px 20px 16px;
+        max-width: 1100px;
+        margin: auto;
+      }
+      h1 {
+        font-size: clamp(28px, 5vw, 48px);
+        letter-spacing: 0.2px;
+        margin: 0 0 10px;
+      }
+      .sub {
+        color: var(--muted);
+      }
+      .wrap {
+        max-width: 1100px;
+        margin: auto;
+        padding: 0 20px 60px;
+      }
+      /* Collage */
+      .collage {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 10px;
+        grid-auto-rows: 140px;
+        margin: 24px 0 36px;
+      }
+      .tile {
+        position: relative;
+        border-radius: 14px;
+        overflow: hidden;
+        background: var(--hl);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+        cursor: pointer;
+      }
+      .tile img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        filter: saturate(1.05) contrast(1.02);
+      }
+      .tile small {
+        position: absolute;
+        inset: auto 10px 8px 10px;
+        color: #cbd5e1;
+        background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.55));
+        padding: 40px 8px 6px;
+        display: block;
+        font-size: 12px;
+      }
+      .w6 {
+        grid-column: span 6;
+      }
+      .w4 {
+        grid-column: span 4;
+      }
+      .w8 {
+        grid-column: span 8;
+      }
+      .w12 {
+        grid-column: span 12;
+      }
+      .h1 {
+        grid-row: span 1;
+      }
+      .h2 {
+        grid-row: span 2;
+      }
+      .h3 {
+        grid-row: span 3;
+      }
+      @media (max-width: 900px) {
+        .collage {
+          grid-template-columns: repeat(6, 1fr);
+          grid-auto-rows: 120px;
+        }
+        .w8 {
+          grid-column: span 6;
+        }
+        .w6 {
+          grid-column: span 6;
+        }
+        .w4 {
+          grid-column: span 3;
+        }
+        .w12 {
+          grid-column: span 6;
+        }
+      }
+      @media (max-width: 600px) {
+        .collage {
+          grid-template-columns: repeat(2, 1fr);
+          grid-auto-rows: 120px;
+        }
+        .tile small {
+          font-size: 11px;
+        }
+        .w8,
+        .w6,
+        .w4,
+        .w12 {
+          grid-column: span 2;
+        }
+      }
+
+      article {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.04),
+          transparent
+        );
+        border: 1px solid #1b2130;
+        padding: 28px;
+        border-radius: 16px;
+      }
+      article h2 {
+        margin-top: 0;
+      }
+      .note {
+        font-size: 14px;
+        color: var(--muted);
+      }
+      .credit {
+        font-size: 12px;
+        color: #a8b0c2;
+      }
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 12px;
+        margin-top: 18px;
+      }
+      .gallery figure {
+        background: var(--card);
+        border: 1px solid #222b3f;
+        border-radius: 14px;
+        overflow: hidden;
+        margin: 0;
+      }
+      .gallery img {
+        width: 100%;
+        height: 210px;
+        object-fit: cover;
+        display: block;
+      }
+      .gallery figcaption {
+        padding: 8px 10px;
+        font-size: 12.5px;
+        color: #c9d3e8;
+      }
+
+      /* Lightbox */
+      .lightbox {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.85);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+      .lightbox img {
+        max-width: 96vw;
+        max-height: 86vh;
+        border-radius: 10px;
+        box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6);
+      }
+      .lightbox.show {
+        display: flex;
+      }
+      .close {
+        position: fixed;
+        top: 12px;
+        right: 16px;
+        background: #111827;
+        color: #cbd5e1;
+        border: 1px solid #1f2937;
+        border-radius: 10px;
+        padding: 8px 12px;
+        cursor: pointer;
+      }
+      footer {
+        color: var(--muted);
+        margin-top: 28px;
+        font-size: 13px;
+      }
+      code,
+      pre {
+        background: #0f1522;
+        color: #e2e8f0;
+        padding: 0.3em 0.5em;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Grace Hopper, COBOL, and Why It Still Matters</h1>
+      <div class="sub">
+        Rear Admiral • Compiler pioneer • Made computers “speak human”
+      </div>
+
+      <!-- Collage -->
+      <div class="collage" id="collage">
+        <!-- Grace Hopper official portrait -->
+        <div class="tile w6 h2">
+          <img
+            data-src="https://commons.wikimedia.org/wiki/Special:FilePath/Grace%20Hopper.jpg"
+            alt="Grace Hopper official US Navy portrait (1984)"
+          />
+          <small>Grace Hopper in uniform (1984)</small>
+        </div>
+
+        <!-- Hopper, uniform alt -->
+        <div class="tile w4 h1">
+          <img
+            data-src="https://commons.wikimedia.org/wiki/Special:FilePath/Commodore%20Grace%20M.%20Hopper,%20USN%20(covered).jpg"
+            alt="Grace Hopper, USN (covered)"
+          />
+          <small>Rear Admiral (Lower Half)</small>
+        </div>
+
+        <!-- The famous bug (Mark II logbook, 1947) -->
+        <div class="tile w4 h2">
+          <img
+            data-src="https://commons.wikimedia.org/wiki/Special:FilePath/First%20Computer%20Bug,%201945.jpg"
+            alt="Mark II logbook with moth taped in (the 'first computer bug', 1947)"
+          />
+          <small>“First actual case of bug being found” (1947)</small>
+        </div>
+
+        <!-- IBM mainframe used in banking -->
+        <div class="tile w8 h2">
+          <img
+            data-src="https://commons.wikimedia.org/wiki/Special:FilePath/IBM%20mainframe%20Z10.jpg"
+            alt="IBM z10 mainframe at a large Italian bank data center"
+          />
+          <small>Mainframe in a bank data center (COBOL workloads)</small>
+        </div>
+
+        <!-- System z frames -->
+        <div class="tile w12 h1">
+          <img
+            data-src="https://commons.wikimedia.org/wiki/Special:FilePath/System%20z%20Frames.JPG"
+            alt="IBM zEnterprise EC12/BC12 frames"
+          />
+          <small>IBM zEnterprise frames (EC12, BC12)</small>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap">
+      <article>
+        <h2>The Admiral Who Taught Computers to Speak Human</h2>
+        <p>
+          <strong>Grace Hopper</strong> believed that computers shouldn’t be
+          locked behind cryptic machine code. She pushed for languages that
+          looked more like English, led early compiler work, and helped shape
+          <strong>COBOL</strong>—a business-oriented language designed so
+          managers and analysts could read programs, not just engineers.
+        </p>
+
+        <p>
+          That bet paid off. COBOL became the backbone of banking, insurance,
+          and government systems, many of which still run today on IBM Z
+          mainframes. If you’ve ever swiped a card, filed taxes, or checked a
+          balance, there’s a decent chance COBOL was involved somewhere behind
+          the scenes.
+        </p>
+
+        <p class="note">
+          Fun artifacts: the taped moth in the Harvard Mark II logbook—the
+          “first actual case of bug being found”—and photos of Hopper in uniform
+          remind us tech is a human story: curiosity, clarity, and the guts to
+          make hard things simple.
+        </p>
+
+        <h3>Gallery (tap to view)</h3>
+        <div class="gallery" id="gallery">
+          <figure class="zoom">
+            <img
+              data-src="https://commons.wikimedia.org/wiki/Special:FilePath/Grace%20Hopper.jpg"
+              alt="Grace Hopper official portrait"
+            />
+            <figcaption>
+              Grace Hopper, official USN portrait (1984). Source: Wikimedia
+              Commons.
+            </figcaption>
+          </figure>
+
+          <figure class="zoom">
+            <img
+              data-src="https://commons.wikimedia.org/wiki/Special:FilePath/Commodore%20Grace%20M.%20Hopper,%20USN%20(covered).jpg"
+              alt="Hopper in uniform"
+            />
+            <figcaption>
+              Hopper in uniform. Source: US Navy / Wikimedia Commons.
+            </figcaption>
+          </figure>
+
+          <figure class="zoom">
+            <img
+              data-src="https://commons.wikimedia.org/wiki/Special:FilePath/First%20Computer%20Bug,%201945.jpg"
+              alt="Mark II bug logbook"
+            />
+            <figcaption>
+              Mark II logbook with the moth (“bug”), 1947. Source: Smithsonian
+              via Wikimedia Commons.
+            </figcaption>
+          </figure>
+
+          <figure class="zoom">
+            <img
+              data-src="https://commons.wikimedia.org/wiki/Special:FilePath/Grace%20Hopper%20and%20UNIVAC.jpg"
+              alt="Grace Hopper at the UNIVAC keyboard"
+            />
+            <figcaption>
+              Hopper at a UNIVAC console, c.1960. Source: Smithsonian /
+              Wikimedia Commons.
+            </figcaption>
+          </figure>
+
+          <figure class="zoom">
+            <img
+              data-src="https://commons.wikimedia.org/wiki/Special:FilePath/IBM%20z13%20(front).png"
+              alt="IBM z13 mainframe"
+            />
+            <figcaption>
+              IBM z13 mainframe. Source: Wikimedia Commons.
+            </figcaption>
+          </figure>
+
+          <figure class="zoom">
+            <img
+              data-src="https://commons.wikimedia.org/wiki/Special:FilePath/IBM%20z13%20and%20LinuxONE%20Rockhopper.jpg"
+              alt="IBM z13 and LinuxONE"
+            />
+            <figcaption>
+              IBM z13 and LinuxONE Rockhopper. Source: Wikimedia Commons.
+            </figcaption>
+          </figure>
+        </div>
+
+        <h3>Rear Admiral, Real Impact</h3>
+        <p>
+          Rear Admirals typically lead large naval formations such as a
+          <em>Task Force</em> or <em>Carrier Strike Group</em>—the same level of
+          leadership spirit Hopper brought to computing: organize the complex,
+          make missions possible.
+        </p>
+
+        <footer>
+          <p class="credit">
+            Image credits (via Wikimedia Commons “Special:FilePath”): Grace
+            Hopper portraits; “First Computer Bug, 1947” (Smithsonian logbook
+            image); IBM Z mainframes (z10, z13, zEnterprise). Licensing as noted
+            on each file’s page.
+          </p>
+        </footer>
+      </article>
+    </div>
+
+    <!-- Lightbox + lazy loader -->
+    <div class="lightbox" id="lb">
+      <img alt="" /><button class="close" id="x">Close ✕</button>
+    </div>
+
+    <script>
+      // Lazy-load images
+      const imgs = [...document.querySelectorAll('img[data-src]')];
+      const io = new IntersectionObserver(
+        (es) =>
+          es.forEach((e) => {
+            if (e.isIntersecting) {
+              const img = e.target;
+              img.src = img.dataset.src;
+              img.removeAttribute('data-src');
+              io.unobserve(img);
+            }
+          }),
+        { rootMargin: '200px' }
+      );
+      imgs.forEach((i) => io.observe(i));
+
+      // Lightbox
+      const lb = document.getElementById('lb'),
+        lbImg = lb.querySelector('img'),
+        closeBtn = document.getElementById('x');
+      document.addEventListener('click', (e) => {
+        const t = e.target.closest('.tile, .gallery figure');
+        if (!t) return;
+        const img = t.querySelector('img');
+        if (!img || !img.src) return;
+        lbImg.src = img.src;
+        lb.classList.add('show');
+      });
+      closeBtn.onclick = () => lb.classList.remove('show');
+      lb.onclick = (e) => {
+        if (e.target === lb) lb.classList.remove('show');
+      };
+    </script>
+  </body>
+</html>
